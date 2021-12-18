@@ -54,7 +54,7 @@ h6 {
 /* HEADER */
 
 .main-header {
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   background-color: orange;
@@ -63,6 +63,7 @@ h6 {
 .main-header .logo {
   height: 2.187rem;
   width: auto;
+  margin-left: 20px;
 }
 
 .main-header li a {
@@ -123,9 +124,7 @@ h6 {
   gap: 10px;
 }
 /* MAIN EDITOR */
-.canvas-container {
-  max-width: 10%;
-}
+
 canvas {
   max-width: 100%;
 }
@@ -268,13 +267,12 @@ img {
     flex-direction: column;
     margin: 0;
   }
-  .canvas {
-    width: 80vw;
-    height: 80vh;
+  .canvas-container {
+    width: 100%;
   }
-  /* body {
+  body {
     padding: 0;
-  } */
+  }
   .main-layout {
     max-width: 400px;
   }
