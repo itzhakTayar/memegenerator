@@ -21,7 +21,7 @@ function renderMeme() {
   const meme = getMeme();
 
   const img = new Image();
-  img.src = `/img/memes/${meme.selectedImgId}.jpg`;
+  img.src = `./img/memes/${meme.selectedImgId}.jpg`;
 
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
