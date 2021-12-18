@@ -1,7 +1,7 @@
 'use strict';
 let gCanvas;
 let gCtx;
-const gStickers = ['💙', '😂', '😎', '😍', '👌🏼', '🤙🏼', '💪🏼'];
+const gStickers = ['🐶', '😈', '😱', '😍', '😭', '🙄', '🤗'];
 let gStickersIdx = 0;
 function onImgSelect(imgId) {
   renderCanvas();
@@ -64,6 +64,7 @@ function drawLine(line, x = gCanvas.width / 2) {
   }
   markLine(meme.lines[curLine]);
 }
+
 function setAlign(align) {
   gMeme.lines[gMeme.selectedLineIdx].align = align;
 }
@@ -104,8 +105,6 @@ function onMoveLine(yOffset) {
   renderMeme();
 }
 function onDownload(elLink) {
-  const meme = getMeme();
-  meme.selectedLineIdx = 100;
   onSwitchLine();
   Download(elLink);
 }
@@ -114,15 +113,6 @@ function onSetFont(font) {
   renderMeme();
 }
 
-// function closeGallery() {
-//   document.querySelector('.gallery').classList.add('hidden');
-//   document.querySelector('.main-editor').classList.remove('hidden');
-// }
-
-// function openGallery() {
-//   renderGallery('');
-//   document.querySelector('.main-editor').classList.add('hidden');
-// }
 function renderStickers() {
   let strHTMLs = '';
   for (var i = gStickersIdx; i < gStickersIdx + 2; i++) {
@@ -148,9 +138,7 @@ function moveTo() {
   document.querySelector('.main-editor').classList.toggle('hidden');
   document.querySelector('.main-about').classList.toggle('hidden');
 }
-// function closeEditor() {
-//   document.querySelector('.main-gallery').classList.remove('hidden');
-//   document.querySelector('.main-search').classList.remove('hidden');
-//   document.querySelector('.main-editor').classList.add('hidden');
-//   document.querySelector('.main-about').classList.remove('hidden');
-// }
+
+function onUploadMeme() {
+  uploadMeme();
+}

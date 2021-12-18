@@ -36,3 +36,16 @@ function onKeywordClick(keyword) {
   renderKeywords();
   renderGallery(keyword);
 }
+function myFunction() {
+  var x = document.getElementById('myLinks');
+  if (x.style.display === 'block') {
+    x.style.display = 'none';
+  } else {
+    x.style.display = 'block';
+  }
+}
+
+function toggleMenu() {
+  document.querySelector('.main-nav').classList.toggle('menu-open');
+  document.querySelector('li').classList.toggle('menu-open');
+}

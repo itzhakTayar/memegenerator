@@ -23,16 +23,16 @@
 
           <!-- nav -->
           <nav>
+            <button class="btn-menu" onclick="toggleMenu()">☰</button>
             <ul class="main-nav clean-list main-layout">
               <li onclick="moveTo()"><a href="#">Gallery</a></li>
-              <li><a href="#">Memes</a></li>
-              <li><a href="#">About</a></li>
+              <li onclick="renderSavedMeme()"><a href="#">Memes</a></li>
+              <li><a href="#target">About</a></li>
             </ul>
           </nav>
         </header>
         <!-- search line -->
         <div class="main-search flex">
-          <div class="keyword"></div>
           <div class="search-line">
             <input
               class="search"
@@ -42,6 +42,7 @@
               list="keywords"
             />
           </div>
+          <div class="keyword"></div>
         </div>
 
         <datalist id="keywords">
@@ -150,8 +151,10 @@
               </div>
               <!-- up/down load -->
               <div class="actions flex">
-                <button class="" onclick="onUploadImg()">share</button>
-                <buuton
+                <button class="actions-btn" onclick="onUploadMeme()">
+                  share
+                </button>
+                <buuton class="actions-btn"
                   ><a href="#" onclick="onDownload(this)">download</a></buuton
                 >
               </div>
@@ -160,8 +163,8 @@
         </main>
 
         <!-- about -->
-        <div class="main-about main-layout">
-          <div class="picture"></div>
+        <div class="main-about main-layout flex" id="target">
+          <div class="picture"><img src="./img/logo/me.jfif" /></div>
           <div class="about">
             <h2>Itzhak Tayar</h2>
             <p>
@@ -183,6 +186,7 @@
     </div>
     <p class="user-msg hidden"></p>
     <div class="share-container"></div>
+
     <script src="./js/services/upload-service.js"></script>
     <script src="./js/services/gallery.service.js"></script>
     <script src="./js/services/meme.service.js"></script>

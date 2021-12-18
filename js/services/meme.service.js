@@ -104,3 +104,14 @@ function Download(elLink) {
   elLink.href = data;
   elLink.download = 'my-canvas';
 }
+function uploadMeme() {
+  const imgDataUrl = gCanvas.toDataURL('image/jpeg');
+  doUploadImg(imgDataUrl, onSuccess);
+
+  function onSuccess(uploadedImgUrl) {
+    const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}`
+    );
+  }
+}

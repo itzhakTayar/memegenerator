@@ -107,7 +107,9 @@ function getImgs(keyword) {
 function createKeywords() {
   const set = new Set();
   gImgs.forEach((img) => img.keywords.forEach((keyword) => set.add(keyword)));
-  set.forEach((keyword) => gKeywords.push({ name: keyword, searchCount: 0 }));
+  set.forEach((keyword) =>
+    gKeywords.push({ name: keyword, searchCount: getRandomArbitrary(7, 15) })
+  );
 }
 
 function updateKeywordCount(keywordSearched) {
@@ -116,4 +118,8 @@ function updateKeywordCount(keywordSearched) {
   );
   if (keywordObj.searchCount === 20) return;
   keywordObj.searchCount++;
+}
+
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
 }
