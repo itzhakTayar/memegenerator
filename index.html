@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meme generator</title>
+    <script
+      src="https://kit.fontawesome.com/58f0497369.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body onload="init()">
+    <div class="border-all main-layout">
+      <!-- nav bar + logo -->
+      <div class="main-layout">
+        <header class="main-header flex">
+          <!-- logo -->
+          <img class="logo" src="./img/logo/LOGO.png" />
+
+          <!-- nav -->
+          <nav>
+            <ul class="main-nav clean-list main-layout">
+              <li onclick="moveTo()"><a href="#">Gallery</a></li>
+              <li><a href="#">Memes</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </nav>
+        </header>
+        <!-- search line -->
+        <div class="main-search flex">
+          <div class="keyword"></div>
+          <div class="search-line">
+            <input
+              class="search"
+              type="text"
+              oninput="renderGallery(this.value)"
+              placeholder="Search"
+              list="keywords"
+            />
+          </div>
+        </div>
+
+        <datalist id="keywords">
+          <option value="funny"></option>
+          <option value="popular"></option>
+          <option value="celebrity"></option>
+          <option value="cute"></option>
+          <option value="animal"></option>
+        </datalist>
+
+        <!-- main -->
+        <main>
+          <!-- gallery -->
+          <div class="main-gallery">
+            <div class="gallery"></div>
+          </div>
+
+          <!-- editor  start div-->
+          <div class="main-editor hidden main-layout flex">
+            <!-- canvas -->
+            <div class="canvas-container">
+              <canvas width="500" height="500" id="canvas"></canvas>
+            </div>
+
+            <!-- control  start div-->
+
+            <!-- textbox -->
+            <div class="control flex">
+              <input type="text" oninput="onSetText(this.value)" />
+              <div class="lines-edit">
+                <button
+                  class="fas fa-arrow-circle-up edit-btn"
+                  onclick="onMoveLine(-5)"
+                ></button>
+                <button
+                  class="fas fa-arrow-circle-down edit-btn"
+                  onclick="onMoveLine(5)"
+                ></button>
+                <button
+                  class="fas fa-trash-alt edit-btn"
+                  onclick="onDeleteLine()"
+                ></button>
+                <button
+                  class="fas fa-random edit-btn"
+                  onclick="onSwitchLine()"
+                ></button>
+                <button
+                  class="fas fa-plus edit-btn"
+                  onclick="onAddLine()"
+                ></button>
+              </div>
+
+              <!-- buttons -->
+              <div class="font-edit">
+                <button
+                  class="fas fa-expand-alt edit-btn"
+                  onclick="onSetFontSize(1)"
+                ></button>
+                <button
+                  class="fas fa-compress-alt edit-btn"
+                  onclick="onSetFontSize(-1)"
+                ></button>
+                <button
+                  class="fas fa-align-right edit-btn"
+                  onclick="onSetAlign('right')"
+                ></button>
+                <button
+                  class="fas fa-align-center edit-btn"
+                  onclick="onSetAlign('center')"
+                ></button>
+                <button
+                  class="fas fa-align-left edit-btn"
+                  onclick="onSetAlign('left')"
+                ></button>
+
+                <select
+                  class="font"
+                  name="font"
+                  onchange="onSetFont(this.value)"
+                >
+                  <option value="impact">Impact</option>
+                  <option value="arial">Arial</option>
+                </select>
+                <input type="color" onchange="onSetColor(this.value,'fill')" />
+                <input
+                  type="color"
+                  onchange="onSetColor(this.value,'stroke')"
+                />
+              </div>
+
+              <!-- stiker -->
+              <div class="stickers-container flex">
+                <button
+                  class="left-scroll edit-btn"
+                  onclick="onScrollStickers(-1)"
+                >
+                  ⬅
+                </button>
+                <div class="stickers"></div>
+                <button
+                  class="right-scroll edit-btn"
+                  onclick="onScrollStickers(1)"
+                >
+                  ➡
+                </button>
+              </div>
+              <!-- up/down load -->
+              <div class="actions flex">
+                <button class="" onclick="onUploadImg()">share</button>
+                <buuton
+                  ><a href="#" onclick="onDownload(this)">download</a></buuton
+                >
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <!-- about -->
+        <div class="main-about main-layout">
+          <div class="picture"></div>
+          <div class="about">
+            <h2>Itzhak Tayar</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+              quis. Inventore similique debitis aut aperiam soluta corporis
+              fugiat blanditiis
+            </p>
+          </div>
+          <div class="contact"></div>
+        </div>
+        <!-- footer -->
+        <footer class="main-footer main-layout flex">
+          <small
+            >Memegenerator © 2021 by <strong>Itzhak Tayar</strong>. All Rights
+            Reserved.</small
+          >
+        </footer>
+      </div>
+    </div>
+    <p class="user-msg hidden"></p>
+    <div class="share-container"></div>
+    <script src="./js/services/upload-service.js"></script>
+    <script src="./js/services/gallery.service.js"></script>
+    <script src="./js/services/meme.service.js"></script>
+    <script src="./js/gallery.controller.js"></script>
+    <script src="./js/meme.controller.js"></script>
+  </body>
+</html>
