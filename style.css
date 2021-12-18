@@ -268,10 +268,12 @@ img {
     margin: 0;
   }
   .canvas-container {
-    width: 50%;
+    width: 100%;
   }
-  .canvas{
-    width:80vh
+  .canvas {
+    width: 80px;
+  }
+
   body {
     padding: 0;
   }
