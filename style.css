@@ -338,4 +338,7 @@ img:hover {
   .main-header li.menu-open {
     border-right: none;
   }
+  .main-header.ul {
+    position: absolute;
+  }
 }
